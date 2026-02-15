@@ -224,7 +224,121 @@ function CartPage({ language = "en" }) {
                             )}
                         </div>
 
+                        {/* Right Side - Order Summary (Sticky) */}
+                        <div className="lg:col-span-1">
+                            <div className="lg:sticky lg:top-24 space-y-4">
+                                {/* Order Summary Card */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className="bg-slate-900 rounded-xl border border-slate-700 p-6 space-y-4"
+                                >
+                                    <h2 className="text-white font-bold text-lg flex items-center gap-2">
+                                        <span className="text-xl">📋</span>
+                                        Order Summary
+                                    </h2>
 
+                                    {/* Price Breakdown */}
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-between text-sm">
+                                            <span className="text-gray-400">Subtotal ({cartItems.length} items)</span>
+                                            <span className="text-white font-semibold">৳{subtotal}</span>
+                                        </div>
+
+                                        <div className="flex items-center justify-between text-sm">
+                                            <span className="text-gray-400">Delivery Fee</span>
+                                            <span className="text-white font-semibold">৳{deliveryFee}</span>
+                                        </div>
+
+                                        <div className="flex items-center justify-between text-sm">
+                                            <span className="text-green-400">Discount</span>
+                                            <span className="text-green-400 font-semibold">-৳{discount}</span>
+                                        </div>
+
+                                        <div className="border-t border-slate-700 pt-3">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-white font-semibold">Total Amount</span>
+                                                <span className="text-[#079992] font-bold text-2xl">৳{totalAmount}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Promo Code */}
+                                    <div className="pt-3 border-t border-slate-700">
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="text"
+                                                placeholder="Enter promo code"
+                                                className="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#079992] transition-colors"
+                                            />
+                                            <button className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300">
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Checkout Button */}
+                                    <button className="w-full bg-gradient-to-r from-[#079992] to-[#38ada9] hover:shadow-lg hover:shadow-[#60a3bc]/50 text-white py-3 rounded-xl font-bold text-base transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                                        <span className="text-xl">🛍️</span>
+                                        Proceed to Checkout
+                                    </button>
+                                </motion.div>
+
+                                {/* Delivery Info Card */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.1 }}
+                                    className="bg-slate-900 rounded-xl border border-slate-700 p-5 space-y-3"
+                                >
+                                    <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                                        <span className="text-lg">🚚</span>
+                                        Delivery Information
+                                    </h3>
+                                    <div className="space-y-2 text-xs text-gray-400">
+                                        <div className="flex items-start gap-2">
+                                            <span className="text-green-400 mt-0.5">✓</span>
+                                            <span>Free delivery on orders above ৳500</span>
+                                        </div>
+                                        <div className="flex items-start gap-2">
+                                            <span className="text-green-400 mt-0.5">✓</span>
+                                            <span>Estimated delivery: 30-45 minutes</span>
+                                        </div>
+                                        <div className="flex items-start gap-2">
+                                            <span className="text-green-400 mt-0.5">✓</span>
+                                            <span>Safe and contactless delivery</span>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Payment Methods */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                    className="bg-slate-900 rounded-xl border border-slate-700 p-5"
+                                >
+                                    <h3 className="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                                        <span className="text-lg">💳</span>
+                                        We Accept
+                                    </h3>
+                                    <div className="flex items-center gap-2 flex-wrap">
+                                        <div className="bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-xs text-gray-300">
+                                            Cash
+                                        </div>
+                                        <div className="bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-xs text-gray-300">
+                                            bKash
+                                        </div>
+                                        <div className="bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-xs text-gray-300">
+                                            Nagad
+                                        </div>
+                                        <div className="bg-slate-800 border border-slate-700 rounded px-3 py-1.5 text-xs text-gray-300">
+                                            Card
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
