@@ -94,6 +94,48 @@ function OrderSummary() {
                         </div>
                     </div>
 
+                    {/* RIGHT — fixed summary */}
+                    <div className="w-full md:w-80 lg:w-96 flex-shrink-0 px-4 py-5 bg-slate-900/30">
+                        <p className="text-xs text-slate-300 uppercase tracking-widest mb-5">Bill Summary</p>
+
+                        <div className="space-y-3.5">
+                            <div className="flex justify-between text-sm">
+                                <span className="text-slate-300">Subtotal</span>
+                                <span className="text-slate-200 font-medium">{fmt(subtotal)}</span>
+                            </div>
+                            <div className="flex justify-between text-sm">
+                                <span className="text-slate-300">VAT / Tax (5%)</span>
+                                <span className="text-slate-200 font-medium">{fmt(tax)}</span>
+                            </div>
+                        </div>
+
+                        <div className="h-px bg-gradient-to-r from-[#079992]/40 via-[#38ada9]/20 to-transparent my-5" />
+
+                        <div className="flex justify-between items-center mb-6">
+                            <span className="text-base font-bold text-slate-100">Total Payable</span>
+                            <span className="text-2xl font-extrabold text-[#38ada9]">{fmt(total)}</span>
+                        </div>
+
+                        {/* Coupon */}
+                        <div className="flex gap-2 mb-5">
+                            <input
+                                placeholder="Enter coupon code"
+                                className="flex-1 px-3 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm placeholder-slate-300 focus:outline-none focus:border-[#079992] transition-colors"
+                            />
+                            <button className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">
+                                Apply
+                            </button>
+                        </div>
+
+                        <button className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white text-sm font-bold tracking-wide hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+                            Place Order →
+                        </button>
+
+                        <p className="text-center text-xs text-slate-300 mt-4">
+                            🍽️ Estimated delivery: 25 – 35 mins
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
