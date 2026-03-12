@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const languages = ['বাংলা', 'EN'];
@@ -17,7 +18,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="w-full bg-slate-900 border-b border-gray-200 px-4 py-4">
+        <nav className="w-full bg-slate-900 border-b border-gray-200 px-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left side - Logo */}
                 <div className="flex items-center">
@@ -36,14 +37,14 @@ const Navbar = () => {
 
                     {/* Cart Icon */}
                     <div className="relative">
-                        <button className="p-2 text-white hover:text-cyan-300 rounded-full transition-colors duration-200 cursor-pointer">
+                        <Link to={"/order-summary"} className="px-2 text-white hover:text-cyan-300 rounded-full transition-colors duration-200 cursor-pointer">
                             <ShoppingCart />
                             {cartCount > 0 && (
-                                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                <span className="absolute top-3 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                                     {cartCount}
                                 </span>
                             )}
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

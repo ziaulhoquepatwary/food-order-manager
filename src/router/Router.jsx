@@ -3,6 +3,7 @@ import CustomerLayout from "../layout/CustomerLayout";
 import CustomerHome from "../pages/customer/CustomerHome";
 import ProductDetails from "../components/menu/ProductDetails";
 import CartPage from "../pages/customer/CartPage";
+import OrderSummary from "../pages/customer/order-summary/OrderSummary";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: '/cart',
                 Component: CartPage
+            },
+            {
+                path: '/order-summary',
+                Component: OrderSummary
             }
         ]
     }
