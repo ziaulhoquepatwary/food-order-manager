@@ -10,6 +10,11 @@ const items = [
     { id: 7, name: "Vegetable Soup", variant: "Hot Bowl", price: 150, qty: 1, img: "🍲", category: "Soups", customizations: ["No Salt", "Extra Pepper"] },
 ];
 
+const fmt = (n) => "৳" + n.toLocaleString();
+const subtotal = items.reduce((s, p) => s + p.price * p.qty, 0);
+const tax = Math.floor(subtotal * 0.05);
+const total = subtotal + tax;
+
 
 function OrderSummary() {
     return (
@@ -32,7 +37,62 @@ function OrderSummary() {
             <div className="flex-1 overflow-hidden">
                 <div className="max-w-7xl mx-auto h-full flex flex-col md:flex-row">
 
+                    {/* LEFT — scrollable cart */}
+                    <div
+                        className="flex-1 overflow-y-auto px-4 py-5 border-b md:border-b-0 md:border-r border-slate-800 max-h-72 md:max-h-full"
+                        style={{ scrollbarWidth: "none" }}
+                    >
+                        <p className="text-xs text-slate-300 uppercase tracking-widest mb-4">Cart Items</p>
 
+                        <div className="space-y-3">
+                            {items.map(item => (
+                                <div key={item.id} className="bg-slate-900/50 border border-slate-800 hover:border-[#38ada9]/40 rounded-2xl px-4 py-3.5 transition-colors duration-200">
+                                    <div className="flex items-start gap-3">
+
+                                        {/* Icon */}
+                                        <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                                            <div className="w-12 h-12 rounded-xl bg-[#079992]/10 border border-[#079992]/20 flex items-center justify-center text-2xl">
+                                                {item.img}
+                                            </div>
+                                            <span className="text-xs text-slate-300">{item.category}</span>
+                                        </div>
+
+                                        {/* Details */}
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-start justify-between gap-2">
+                                                <div>
+                                                    <p className="text-sm font-semibold text-slate-100">{item.name}</p>
+                                                    <p className="text-xs text-slate-300 mt-0.5">{item.variant}</p>
+                                                </div>
+                                                <span className="text-sm font-bold text-slate-100 flex-shrink-0">{fmt(item.price * item.qty)}</span>
+                                            </div>
+
+                                            {/* Customization tags */}
+                                            <div className="flex flex-wrap gap-1.5 mt-2">
+                                                {item.customizations.map((c, i) => (
+                                                    <span key={i} className="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full">
+                                                        + {c}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            {/* Unit price + qty */}
+                                            <div className="flex items-center justify-between mt-3">
+                                                <span className="text-xs text-slate-300">
+                                                    {fmt(item.price)} <span className="text-slate-300">× {item.qty}</span>
+                                                </span>
+                                                <div className="flex items-center gap-2">
+                                                    <button className="w-7 h-7 rounded-lg border border-slate-700 bg-slate-800 text-slate-400 hover:border-[#079992] hover:text-[#38ada9] transition-colors flex items-center justify-center text-base leading-none">−</button>
+                                                    <span className="w-5 text-center text-sm font-bold text-slate-100">{item.qty}</span>
+                                                    <button className="w-7 h-7 rounded-lg border border-slate-700 bg-slate-800 text-slate-400 hover:border-[#079992] hover:text-[#38ada9] transition-colors flex items-center justify-center text-base leading-none">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
                 </div>
             </div>
