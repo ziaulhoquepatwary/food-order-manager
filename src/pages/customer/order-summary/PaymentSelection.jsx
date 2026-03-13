@@ -64,6 +64,67 @@ function PaymentPage({ totalAmount = 1950 }) {
                         </div>
                     </div>
 
+                    {/* RIGHT — Input Details & Summary */}
+                    <div className="w-full md:w-[400px] lg:w-[450px] p-6 bg-slate-900/20 flex flex-col">
+                        <div>
+                            <p className="text-xs text-slate-400 uppercase tracking-widest mb-6">Payment Details</p>
+
+                            <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-5">
+                                <div>
+                                    <label className="block text-[11px] text-slate-400 uppercase mb-2 ml-1">
+                                        {selectedMethod === 'card' ? 'Card Number' : `${selectedMethod} Number`}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder={selectedMethod === 'card' ? "xxxx xxxx xxxx xxxx" : "01XXXXXXXXX"}
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-[#38ada9] transition-all placeholder:text-slate-600"
+                                    />
+                                </div>
+
+                                {selectedMethod === 'card' ? (
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-[11px] text-slate-400 uppercase mb-2 ml-1">Expiry</label>
+                                            <input type="text" placeholder="MM/YY" className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-[#38ada9]" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[11px] text-slate-400 uppercase mb-2 ml-1">CVV</label>
+                                            <input type="text" placeholder="123" className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-[#38ada9]" />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <label className="block text-[11px] text-slate-400 uppercase mb-2 ml-1">Transaction PIN</label>
+                                        <input
+                                            type="password"
+                                            placeholder="••••"
+                                            className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-[#38ada9] tracking-[0.5em]"
+                                        />
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="mt-6 px-2">
+                                <div className="flex justify-between text-sm mb-2">
+                                    <span className="text-slate-400">Platform Fee</span>
+                                    <span className="text-slate-100">৳0.00</span>
+                                </div>
+                                <div className="flex justify-between text-base font-bold">
+                                    <span className="text-slate-100">Total</span>
+                                    <span className="text-[#38ada9]">{fmt(totalAmount)}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 space-y-3">
+                            <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white font-bold tracking-wide hover:opacity-95 hover:scale-[1.01] active:scale-[0.98] transition-all duration-200">
+                                Complete Payment
+                            </button>
+                            <button className="w-full py-3 bg-white/10 rounded-2xl text-slate-500 text-xs font-medium hover:text-slate-300 transition-colors uppercase tracking-widest">
+                                Cancel & Go Back
+                            </button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
