@@ -4,6 +4,7 @@ import CustomerHome from "../pages/customer/CustomerHome";
 import ProductDetails from "../components/menu/ProductDetails";
 import CartPage from "../pages/customer/CartPage";
 import OrderSummary from "../pages/customer/order-summary/OrderSummary";
+import PaymentSelection from "../pages/customer/order-summary/PaymentSelection";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: '/order-summary',
                 Component: OrderSummary
+            },
+            {
+                path: '/payment',
+                Component: PaymentSelection
             }
         ]
     }

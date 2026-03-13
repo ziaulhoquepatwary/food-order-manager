@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const items = [
     { id: 1, name: "Chicken Burger", variant: "With Extra Cheese", price: 320, qty: 2, img: "🍔", category: "Burgers", customizations: ["Extra Cheese", "No Onion", "Well Done"] },
@@ -127,9 +128,9 @@ function OrderSummary() {
                             </button>
                         </div>
 
-                        <button className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white text-sm font-bold tracking-wide hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+                        <Link to="/payment" className="w-full inline-block text-center py-3.5 rounded-2xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white text-sm font-bold tracking-wide hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
                             Place Order →
-                        </button>
+                        </Link>
 
                         <p className="text-center text-xs text-slate-300 mt-4">
                             🍽️ Estimated delivery: 25 – 35 mins
