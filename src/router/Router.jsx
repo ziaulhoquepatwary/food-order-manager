@@ -5,6 +5,7 @@ import ProductDetails from "../components/menu/ProductDetails";
 import CartPage from "../pages/customer/CartPage";
 import OrderSummary from "../pages/customer/order-summary/OrderSummary";
 import PaymentSelection from "../pages/customer/order-summary/PaymentSelection";
+import AuthLayout from "../layout/AuthLayout";
 
 export const router = createBrowserRouter([
     {
@@ -32,5 +33,9 @@ export const router = createBrowserRouter([
                 Component: PaymentSelection
             }
         ]
+    },
+    {
+        path: '/',
+        Component: AuthLayout,
     }
 ])

@@ -1,0 +1,34 @@
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom';
+import slideLogo from '../assets/cooking.png';
+
+function AuthLayout() {
+    return (
+        <div className='min-h-screen bg-gray-100 flex items-center justify-center p-4'>
+            <div className='max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row'>
+
+                {/* Left Side - Form */}
+                <div className='w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center'>
+                    <Link to={'/'} className="flex items-center gap-2 py-3">
+                        <span className="text-2xl font-semibold text-gray-800 font-heading">Cook Food</span>
+                    </Link>
+                    <Outlet />
+                </div>
+
+                {/*  Right Side - Image   */}
+                <div className='hidden md:flex md:w-1/2 items-center bg-[#FAFDF0] justify-center p-12'>
+                    <div className='text-center'>
+                        <img
+                            src={slideLogo}
+                            alt="Login Illustration"
+                            className='w-full object-cover rounded-lg'
+                        />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+export default AuthLayout
