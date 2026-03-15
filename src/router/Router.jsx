@@ -6,6 +6,7 @@ import CartPage from "../pages/customer/CartPage";
 import OrderSummary from "../pages/customer/order-summary/OrderSummary";
 import PaymentSelection from "../pages/customer/order-summary/PaymentSelection";
 import AuthLayout from "../layout/AuthLayout";
+import Login from "../pages/authentications/Login";
 
 export const router = createBrowserRouter([
     {
@@ -37,5 +38,11 @@ export const router = createBrowserRouter([
     {
         path: '/',
         Component: AuthLayout,
+        children: [
+            {
+                path: 'login',
+                Component: Login
+            },
+        ]
     }
 ])
