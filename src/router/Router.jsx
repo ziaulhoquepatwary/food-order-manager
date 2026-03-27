@@ -7,6 +7,7 @@ import OrderSummary from "../pages/customer/order-summary/OrderSummary";
 import PaymentSelection from "../pages/customer/order-summary/PaymentSelection";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/authentications/Login";
+import Register from "../pages/authentications/Register";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 Component: Login
+            },
+            {
+                path: 'register',
+                Component: Register
             },
         ]
     }
