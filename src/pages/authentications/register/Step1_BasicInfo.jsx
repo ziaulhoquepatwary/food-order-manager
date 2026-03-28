@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaEye, FaEyeSlash, FaPhone, FaUser, FaGoogle } from "react-icons/fa";
 
-function Step1_BasicInfo({ form, onChange }) {
+function Step1_BasicInfo({ methods }) {
+
+    const { register, formState: { errors }, watch } = methods;
+
+
+    const passwordValue = watch("password");
+
     const [showPass, setShowPass] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
 
-    const passwordMismatch = form.confirmPassword.length > 0 && form.password !== form.confirmPassword;
 
     return (
         <div>
@@ -21,16 +26,22 @@ function Step1_BasicInfo({ form, onChange }) {
                     Full Name
                 </label>
                 <div className="relative flex items-center">
-                    <FaUser className="absolute left-4 text-[#38ada9] pointer-events-none" size={14} />
+                    <FaUser className="absolute left-4 text-[#38ada9] pointer-events-none" size={13} />
                     <input
                         type="text"
-                        name="fullName"
-                        placeholder="e.g. Rahul Ahmed"
-                        value={form.fullName}
-                        onChange={onChange}
-                        className="w-full bg-slate-900 border border-[#38ada9]/20 rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:border-[#38ada9]/60 focus:ring-2 focus:ring-[#079992]/15"
+                        placeholder="e.g. Ziaul Hoque"
+                        {...register("fullName", {
+                            required: "Name is required",
+                            minLength: { value: 3, message: "Name must be at least 3 characters" },
+                        })}
+                        className={`w-full bg-slate-900 border rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
+                      ${errors.fullName ? "border-red-500/50" : "border-[#38ada9]/20 focus:border-[#38ada9]/60"}`}
                     />
                 </div>
+                {/* Error message */}
+                {errors.fullName && (
+                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">⚠ {errors.fullName.message}</p>
+                )}
             </div>
 
             {/* ── Email ── */}
@@ -42,13 +53,18 @@ function Step1_BasicInfo({ form, onChange }) {
                     <MdEmail className="absolute left-4 text-[#38ada9] pointer-events-none" size={16} />
                     <input
                         type="email"
-                        name="email"
                         placeholder="chef@cookfood.com"
-                        value={form.email}
-                        onChange={onChange}
-                        className="w-full bg-slate-900 border border-[#38ada9]/20 rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:border-[#38ada9]/60 focus:ring-2 focus:ring-[#079992]/15"
+                        {...register("email", {
+                            required: "Email is required",
+                            pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email" },
+                        })}
+                        className={`w-full bg-slate-900 border rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
+                      ${errors.email ? "border-red-500/50" : "border-[#38ada9]/20 focus:border-[#38ada9]/60"}`}
                     />
                 </div>
+                {errors.email && (
+                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">⚠ {errors.email.message}</p>
+                )}
             </div>
 
             {/* ── Phone ── */}
@@ -60,13 +76,18 @@ function Step1_BasicInfo({ form, onChange }) {
                     <FaPhone className="absolute left-4 text-[#38ada9] pointer-events-none" size={13} />
                     <input
                         type="tel"
-                        name="phone"
                         placeholder="+880 1XXXXXXXXX"
-                        value={form.phone}
-                        onChange={onChange}
-                        className="w-full bg-slate-900 border border-[#38ada9]/20 rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:border-[#38ada9]/60 focus:ring-2 focus:ring-[#079992]/15"
+                        {...register("phone", {
+                            required: "Phone number is required",
+                            pattern: { value: /^[0-9+\s\-]{7,15}$/, message: "Enter a valid phone number" },
+                        })}
+                        className={`w-full bg-slate-900 border rounded-xl pl-11 pr-4 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
+                      ${errors.phone ? "border-red-500/50" : "border-[#38ada9]/20 focus:border-[#38ada9]/60"}`}
                     />
                 </div>
+                {errors.phone && (
+                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">⚠ {errors.phone.message}</p>
+                )}
             </div>
 
             {/* ── Password ── */}
@@ -78,20 +99,22 @@ function Step1_BasicInfo({ form, onChange }) {
                     <RiLockPasswordLine className="absolute left-4 text-[#38ada9] pointer-events-none" size={16} />
                     <input
                         type={showPass ? "text" : "password"}
-                        name="password"
                         placeholder="Min. 8 characters"
-                        value={form.password}
-                        onChange={onChange}
-                        className="w-full bg-slate-900 border border-[#38ada9]/20 rounded-xl pl-11 pr-12 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:border-[#38ada9]/60 focus:ring-2 focus:ring-[#079992]/15"
+                        {...register("password", {
+                            required: "Password is required",
+                            minLength: { value: 8, message: "Password must be at least 8 characters" },
+                        })}
+                        className={`w-full bg-slate-900 border rounded-xl pl-11 pr-12 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
+                      ${errors.password ? "border-red-500/50" : "border-[#38ada9]/20 focus:border-[#38ada9]/60"}`}
                     />
-                    <button
-                        type="button"
-                        onClick={() => setShowPass((p) => !p)}
-                        className="absolute right-3 p-1.5 text-slate-500 hover:text-[#38ada9] transition-colors"
-                    >
+                    <button type="button" onClick={() => setShowPass(p => !p)}
+                        className="absolute right-3 p-1.5 text-slate-500 hover:text-[#38ada9] transition-colors">
                         {showPass ? <FaEyeSlash size={15} /> : <FaEye size={15} />}
                     </button>
                 </div>
+                {errors.password && (
+                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">⚠ {errors.password.message}</p>
+                )}
             </div>
 
             {/* ── Confirm Password ── */}
@@ -103,31 +126,22 @@ function Step1_BasicInfo({ form, onChange }) {
                     <RiLockPasswordLine className="absolute left-4 text-[#38ada9] pointer-events-none" size={16} />
                     <input
                         type={showConfirm ? "text" : "password"}
-                        name="confirmPassword"
                         placeholder="Re-enter your password"
-                        value={form.confirmPassword}
-                        onChange={onChange}
-                        className={`
-                      w-full bg-slate-900 border rounded-xl pl-11 pr-12 py-3
-                      text-slate-100 text-sm placeholder-slate-600 outline-none
-                      transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
-                      ${passwordMismatch ? "border-red-500/50 focus:border-red-500/70" : "border-[#38ada9]/20 focus:border-[#38ada9]/60" }
-                    `}
+                        {...register("confirmPassword", {
+                            required: "Please confirm your password",
+                            validate: (value) =>
+                                value === passwordValue || "Passwords do not match",
+                        })}
+                        className={`w-full bg-slate-900 border rounded-xl pl-11 pr-12 py-3 text-slate-100 text-sm placeholder-slate-600 outline-none transition-all duration-200 focus:ring-2 focus:ring-[#079992]/15
+                      ${errors.confirmPassword ? "border-red-500/50" : "border-[#38ada9]/20 focus:border-[#38ada9]/60"}`}
                     />
-                    <button
-                        type="button"
-                        onClick={() => setShowConfirm((p) => !p)}
-                        className="absolute right-3 p-1.5 text-slate-500 hover:text-[#38ada9] transition-colors"
-                    >
+                    <button type="button" onClick={() => setShowConfirm(p => !p)}
+                        className="absolute right-3 p-1.5 text-slate-500 hover:text-[#38ada9] transition-colors">
                         {showConfirm ? <FaEyeSlash size={15} /> : <FaEye size={15} />}
                     </button>
                 </div>
-
-                {/* error message */}
-                {passwordMismatch && (
-                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">
-                        ⚠ Passwords do not match
-                    </p>
+                {errors.confirmPassword && (
+                    <p className="text-red-400 text-[11px] mt-1.5 pl-1">⚠ {errors.confirmPassword.message}</p>
                 )}
             </div>
 
@@ -137,11 +151,8 @@ function Step1_BasicInfo({ form, onChange }) {
                 <span className="text-xs text-slate-500 whitespace-nowrap">or continue with</span>
                 <div className="flex-1 h-px bg-[#38ada9]/12" />
             </div>
-
-            <button
-                type="button"
-                className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-[#38ada9]/20 bg-slate-900 text-slate-300 text-sm font-medium transition-all duration-200 hover:bg-[#38ada9]/8 hover:border-[#38ada9]/40 hover:-translate-y-0.5 active:translate-y-0"
-            >
+            <button type="button"
+                className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-[#38ada9]/20 bg-slate-900 text-slate-300 text-sm font-medium transition-all duration-200 hover:bg-[#38ada9]/8 hover:border-[#38ada9]/40 hover:-translate-y-0.5">
                 <FaGoogle className="text-[#EA4335]" size={16} />
                 <span>Continue with Google</span>
             </button>
