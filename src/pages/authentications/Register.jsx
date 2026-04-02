@@ -1,6 +1,6 @@
 import React from 'react'
 import { TOTAL_STEPS, useRegisterForm } from '../../hooks/useRegisterForm';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import StepIndicator from './register/StepIndicator';
 import Step1_BasicInfo from './register/Step1_BasicInfo';
 import Step2_Professional from './register/Step2_Professional';
@@ -9,10 +9,11 @@ import SuccessScreen from './register/SuccessScreen';
 
 function Register() {
     const { methods, step, isSuccess, onNext, onBack, onSubmit, } = useRegisterForm();
+    const navigate = useNavigate();
 
     return (
-        <form
-            onSubmit={onSubmit}
+        // ✅ form → div, onSubmit সরিয়ে দিলাম
+        <div
             className="w-full min-h-screen bg-slate-900 flex items-center justify-center px-2 py-10 relative overflow-hidden"
         >
 
@@ -63,10 +64,7 @@ function Register() {
                 {step === 2 && <Step3_Review methods={methods} />}
                 {isSuccess && (
                     <SuccessScreen
-                        onBackToLogin={() => {
-                            Navigate("/login")
-                            console.log("Navigate to login");
-                        }}
+                        onBackToLogin={() => navigate('/login')}
                     />
                 )}
 
@@ -84,7 +82,6 @@ function Register() {
                             </button>
                         )}
 
-                        {/* Continue / Submit */}
                         {step < TOTAL_STEPS - 1 ? (
                             <button
                                 type="button"
@@ -96,8 +93,10 @@ function Register() {
                                 <span className="relative">Continue →</span>
                             </button>
                         ) : (
+                            // ✅ type="button" করে onClick এ onSubmit কল করলাম
                             <button
-                                type="submit"
+                                type="button"
+                                onClick={onSubmit}
                                 className="flex-1 relative py-3 rounded-xl bg-gradient-to-r from-[#079992] to-[#38ada9] text-white font-semibold text-sm tracking-wide overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#079992]/40"
                             >
                                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent"
@@ -137,7 +136,7 @@ function Register() {
                 }
               `}</style>
 
-        </form>
+        </div>
     )
 }
 
