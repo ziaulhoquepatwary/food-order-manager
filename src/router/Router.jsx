@@ -8,6 +8,7 @@ import PaymentSelection from "../pages/customer/order-summary/PaymentSelection";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/authentications/Login";
 import Register from "../pages/authentications/Register";
+import CookerLayout from "../layout/CookerLayout";
 
 export const router = createBrowserRouter([
     {
@@ -48,6 +49,15 @@ export const router = createBrowserRouter([
                 path: 'register',
                 Component: Register
             },
+        ]
+    },
+    {
+        path: '/cooker',
+        Component: CookerLayout,
+        children: [
+            {
+                index: true,
+            }
         ]
     }
 ])
