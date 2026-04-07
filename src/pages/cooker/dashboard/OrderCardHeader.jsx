@@ -12,7 +12,7 @@ function OrderCardHeader({ tableNumber, arrivedAt, priority }) {
                         Urgent
                     </span>
                 )}
-                <span className="text-[11px] text-slate-500">{arrivedAt}</span>
+                <span className="text-[11px] text-slate-200">{arrivedAt}</span>
             </div>
         </div>
     )

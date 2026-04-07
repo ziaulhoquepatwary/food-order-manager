@@ -9,7 +9,7 @@ function CookerDashboard() {
 
             <CookerStatBar />
 
-            <div className="flex-1 grid grid-cols-3 gap-4 p-4 overflow-hidden">
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 overflow-hidden">
                 <NewOrdersColumn />
                 <InProgressColumn />
                 <CompletedColumn />
