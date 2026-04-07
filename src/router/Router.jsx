@@ -9,6 +9,7 @@ import AuthLayout from "../layout/AuthLayout";
 import Login from "../pages/authentications/Login";
 import Register from "../pages/authentications/Register";
 import CookerLayout from "../layout/CookerLayout";
+import CookerDashboard from "../pages/cooker/CookerDashboard";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                Component: CookerDashboard
             }
         ]
     }
