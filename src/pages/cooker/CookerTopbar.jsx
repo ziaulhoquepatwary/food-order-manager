@@ -1,4 +1,4 @@
-import CookerBrand from "./shared/CookerBrand";
+import Logo from "../shared/Logo";
 import CookerLogoutBtn from "./shared/CookerLogoutBtn";
 import CookerProfile from "./shared/CookerProfile";
 import CookerStatusBadge from "./shared/CookerStatusBadge";
@@ -6,9 +6,12 @@ import CookerStatusBadge from "./shared/CookerStatusBadge";
 
 function CookerTopbar({ cookerName, onLogout }) {
     return (
-        <header className="h-14 bg-slate-900 border-b border-[#38ada9]/15 px-5 flex items-center justify-between">
+        <header className="bg-slate-900 border-b border-[#38ada9]/15 px-5 flex items-center justify-between py-3">
 
-            <CookerBrand />
+            <div className="text-center">
+                <Logo />
+                <p className="text-[12px] text-slate-300 tracking-widest uppercase mt-0.5">Kitchen</p>
+            </div>
 
             <div className="flex items-center gap-4">
                 <CookerStatusBadge />

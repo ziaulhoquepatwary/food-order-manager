@@ -15,26 +15,26 @@ function CookerStatusBadge() {
     return (
         <div className="relative">
 
-            {/* ── বর্তমান স্ট্যাটাস বাটন ── */}
+            {/* ── present status button ── */}
             <button
                 type="button"
                 onClick={() => setOpen(p => !p)}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#38ada9]/20 bg-slate-800 hover:border-[#38ada9]/40 transition-all duration-200"
             >
                 <span className={`w-2 h-2 rounded-full ${active.dot}`} />
-                <span className={`text-xs font-medium ${active.color}`}>{active.label}</span>
-                <span className="text-slate-600 text-[10px]">▾</span>
+                <span className={`font-medium ${active.color}`}>{active.label}</span>
+                <span className="text-gray-500 text-[20px]">▾</span>
             </button>
 
-            {/* ── ড্রপডাউন ── */}
+            {/* ── dropdown ── */}
             {open && (
-                <div className="absolute top-9 left-0 z-50 bg-slate-800 border border-[#38ada9]/20 rounded-xl shadow-2xl shadow-black/50 overflow-hidden w-36">
+                <div className="absolute top-9 left-0 z-50 bg-slate-800 border border-[#38ada9]/20 rounded-xl shadow-2xl shadow-black/50 overflow-hidden w-36 ">
                     {STATUSES.map(s => (
                         <button
                             key={s.value}
                             type="button"
                             onClick={() => { setCurrent(s.value); setOpen(false); }}
-                            className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-xs transition-colors duration-150 hover:bg-slate-700
+                            className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-xs transition-colors duration-150 cursor-pointer hover:bg-slate-700
                                 ${current === s.value ? "bg-slate-700/60" : ""}`}
                         >
                             <span className={`w-2 h-2 rounded-full ${s.dot}`} />

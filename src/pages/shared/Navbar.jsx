@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { ShoppingCart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const languages = ['বাংলা', 'EN'];
@@ -21,9 +21,9 @@ const Navbar = () => {
         <nav className="w-full bg-slate-900 border-b border-gray-200 px-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left side - Logo */}
-                <div className="flex items-center">
+                <NavLink className="flex items-center">
                     <Logo />
-                </div>
+                </NavLink>
 
                 {/* Right side - Language and Cart */}
                 <div className="flex items-center space-x-2 md:space-x-4 lg:space-x-4">
