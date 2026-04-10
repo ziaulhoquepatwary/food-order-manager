@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import SidebarNavList from "./SidebarNavList";
-import AdminSidebarFooter from "./AdminSidebarFooter";
+import AdminSidebarFooter from "./shared/AdminSidebarFooter";
+import SidebarNavList from "./shared/SidebarNavList";
 import SidebarLogo from "./shared/SidebarLogo";
 
 function AdminSidebar() {

@@ -10,6 +10,8 @@ import Login from "../pages/authentications/Login";
 import Register from "../pages/authentications/Register";
 import CookerLayout from "../layout/CookerLayout";
 import CookerDashboard from "../pages/cooker/CookerDashboard";
+import AdminLayout from "../layout/AdminLayout";
+import OverviewPage from "../pages/admin/overview/OverviewPage";
 
 export const router = createBrowserRouter([
     {
@@ -60,6 +62,16 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: CookerDashboard
             }
+        ]
+    },
+    {
+        path: "/admin",
+        Component: AdminLayout,
+        children: [
+            {
+                index: true,
+                Component: OverviewPage
+            },
         ]
     }
 ])
