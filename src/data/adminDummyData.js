@@ -53,3 +53,14 @@ export const TOP_ITEMS = [
     { name: "Fish & Chips", sold: 14, percent: 45 },
     { name: "BBQ Ribs", sold: 9, percent: 30 },
 ];
+
+export const ALL_ORDERS = [
+    { id: "ord-048", table: 7, items: "Beef Burger x2, Fries x2", status: "pending", time: "2m ago", total: "৳ 480" },
+    { id: "ord-047", table: 3, items: "Chicken Biryani x1", status: "cooking", time: "5m ago", total: "৳ 220" },
+    { id: "ord-046", table: 11, items: "Fish & Chips x3, Cola x3", status: "completed", time: "12m ago", total: "৳ 750" },
+    { id: "ord-045", table: 5, items: "Grilled Chicken x2", status: "completed", time: "18m ago", total: "৳ 560" },
+    { id: "ord-044", table: 9, items: "Pasta Carbonara x1", status: "cooking", time: "22m ago", total: "৳ 280" },
+    { id: "ord-043", table: 2, items: "BBQ Ribs x2, Coleslaw x1", status: "completed", time: "35m ago", total: "৳ 890" },
+    { id: "ord-042", table: 6, items: "Beef Steak x1", status: "cancelled", time: "40m ago", total: "৳ 650" },
+    { id: "ord-041", table: 1, items: "Chicken Wings x3, Fries x3", status: "completed", time: "52m ago", total: "৳ 420" },
+];
