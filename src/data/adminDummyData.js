@@ -64,3 +64,16 @@ export const ALL_ORDERS = [
     { id: "ord-042", table: 6, items: "Beef Steak x1", status: "cancelled", time: "40m ago", total: "৳ 650" },
     { id: "ord-041", table: 1, items: "Chicken Wings x3, Fries x3", status: "completed", time: "52m ago", total: "৳ 420" },
 ];
+
+export const MENU_ITEMS = [
+    { id: "m-001", name: "Beef Burger", category: "Fast Food", price: "৳ 240", status: "active", image: "🍔" },
+    { id: "m-002", name: "Chicken Biryani", category: "Bengali", price: "৳ 220", status: "active", image: "🍛" },
+    { id: "m-003", name: "Fish & Chips", category: "Seafood", price: "৳ 250", status: "active", image: "🐟" },
+    { id: "m-004", name: "BBQ Ribs", category: "BBQ", price: "৳ 450", status: "inactive", image: "🍖" },
+    { id: "m-005", name: "Pasta Carbonara", category: "Italian", price: "৳ 280", status: "active", image: "🍝" },
+    { id: "m-006", name: "Beef Steak", category: "BBQ", price: "৳ 650", status: "active", image: "🥩" },
+    { id: "m-007", name: "Chicken Wings", category: "Fast Food", price: "৳ 320", status: "inactive", image: "🍗" },
+    { id: "m-008", name: "Grilled Salmon", category: "Seafood", price: "৳ 580", status: "active", image: "🐠" },
+];
+
+export const MENU_CATEGORIES = ["all", "Fast Food", "Bengali", "Seafood", "BBQ", "Italian"];
