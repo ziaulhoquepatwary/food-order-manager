@@ -77,3 +77,36 @@ export const MENU_ITEMS = [
 ];
 
 export const MENU_CATEGORIES = ["all", "Fast Food", "Bengali", "Seafood", "BBQ", "Italian"];
+
+export const ALL_COOKERS = [
+    {
+        id: "c-001", name: "Ziaul Hoque", initials: "ZH",
+        specialty: "Bengali Cuisine", level: "Senior",
+        status: "approved", joinedAt: "Jan 2025", orders: 142,
+    },
+    {
+        id: "c-002", name: "Mahbub Rahman", initials: "MR",
+        specialty: "Fast Food", level: "Mid-level",
+        status: "approved", joinedAt: "Feb 2025", orders: 98,
+    },
+    {
+        id: "c-003", name: "Sakib Khan", initials: "SK",
+        specialty: "BBQ & Grill", level: "Junior",
+        status: "pending", joinedAt: "Apr 2025", orders: 0,
+    },
+    {
+        id: "c-004", name: "Rafiq Islam", initials: "RI",
+        specialty: "Seafood", level: "Senior",
+        status: "pending", joinedAt: "Apr 2025", orders: 0,
+    },
+    {
+        id: "c-005", name: "Karim Uddin", initials: "KU",
+        specialty: "Italian Cuisine", level: "Mid-level",
+        status: "rejected", joinedAt: "Mar 2025", orders: 0,
+    },
+    {
+        id: "c-006", name: "Nasir Ahmed", initials: "NA",
+        specialty: "Fast Food", level: "Junior",
+        status: "approved", joinedAt: "Dec 2024", orders: 214,
+    },
+];
