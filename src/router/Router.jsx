@@ -12,6 +12,9 @@ import CookerLayout from "../layout/CookerLayout";
 import CookerDashboard from "../pages/cooker/CookerDashboard";
 import AdminLayout from "../layout/AdminLayout";
 import OverviewPage from "../pages/admin/overview/OverviewPage";
+import OrdersPage from "../pages/admin/orders/OrdersPage";
+import MenuPage from "../pages/admin/menu/MenuPage";
+import CookersPage from "../pages/admin/cookers/CookersPage";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +75,18 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: OverviewPage
             },
+            {
+                path: 'orders',
+                Component: OrdersPage
+            },
+            {
+                path: 'menu',
+                Component: MenuPage
+            },
+            {
+                path: 'cookers',
+                Component: CookersPage
+            }
         ]
     }
 ])

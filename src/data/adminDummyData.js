@@ -110,3 +110,18 @@ export const ALL_COOKERS = [
         status: "approved", joinedAt: "Dec 2024", orders: 214,
     },
 ];
+
+export const ALL_TABLES = [
+    { id: "t-01", number: 1, capacity: 2, status: "available" },
+    { id: "t-02", number: 2, capacity: 4, status: "occupied" },
+    { id: "t-03", number: 3, capacity: 4, status: "available" },
+    { id: "t-04", number: 4, capacity: 6, status: "occupied" },
+    { id: "t-05", number: 5, capacity: 2, status: "reserved" },
+    { id: "t-06", number: 6, capacity: 8, status: "available" },
+    { id: "t-07", number: 7, capacity: 4, status: "occupied" },
+    { id: "t-08", number: 8, capacity: 4, status: "available" },
+    { id: "t-09", number: 9, capacity: 6, status: "reserved" },
+    { id: "t-10", number: 10, capacity: 2, status: "available" },
+    { id: "t-11", number: 11, capacity: 8, status: "occupied" },
+    { id: "t-12", number: 12, capacity: 4, status: "available" },
+];
