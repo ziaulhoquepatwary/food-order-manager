@@ -125,3 +125,28 @@ export const ALL_TABLES = [
     { id: "t-11", number: 11, capacity: 8, status: "occupied" },
     { id: "t-12", number: 12, capacity: 4, status: "available" },
 ];
+
+export const WEEKLY_REVENUE = [
+    { day: "Mon", revenue: 12400, orders: 38 },
+    { day: "Tue", revenue: 15800, orders: 47 },
+    { day: "Wed", revenue: 11200, orders: 34 },
+    { day: "Thu", revenue: 18900, orders: 56 },
+    { day: "Fri", revenue: 22400, orders: 68 },
+    { day: "Sat", revenue: 28600, orders: 84 },
+    { day: "Sun", revenue: 19200, orders: 58 },
+];
+
+export const CATEGORY_SALES = [
+    { category: "Fast Food", sold: 142, percent: 85 },
+    { category: "Bengali", sold: 98, percent: 58 },
+    { category: "Seafood", sold: 76, percent: 45 },
+    { category: "BBQ", sold: 54, percent: 32 },
+    { category: "Italian", sold: 38, percent: 23 },
+];
+
+export const MONTHLY_SUMMARY = [
+    { label: "Total Revenue", value: "৳ 4,82,400", color: "text-[#38ada9]" },
+    { label: "Total Orders", value: "1,248", color: "text-green-400" },
+    { label: "Avg Daily", value: "৳ 16,080", color: "text-amber-400" },
+    { label: "Best Day", value: "Saturday", color: "text-slate-100" },
+];

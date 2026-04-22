@@ -15,6 +15,7 @@ import OverviewPage from "../pages/admin/overview/OverviewPage";
 import OrdersPage from "../pages/admin/orders/OrdersPage";
 import MenuPage from "../pages/admin/menu/MenuPage";
 import CookersPage from "../pages/admin/cookers/CookersPage";
+import TablesPage from "../pages/admin/tables/TablesPage";
 
 export const router = createBrowserRouter([
     {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
             {
                 path: 'cookers',
                 Component: CookersPage
+            },
+            {
+                path: 'tables',
+                Component: TablesPage
             }
         ]
     }
