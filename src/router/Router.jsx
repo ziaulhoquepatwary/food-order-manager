@@ -16,6 +16,7 @@ import OrdersPage from "../pages/admin/orders/OrdersPage";
 import MenuPage from "../pages/admin/menu/MenuPage";
 import CookersPage from "../pages/admin/cookers/CookersPage";
 import TablesPage from "../pages/admin/tables/TablesPage";
+import AnalyticsPage from "../pages/admin/analytics/AnalyticsPage";
 
 export const router = createBrowserRouter([
     {
@@ -91,7 +92,14 @@ export const router = createBrowserRouter([
             {
                 path: 'tables',
                 Component: TablesPage
-            }
+            },
+            {
+                path: "analytics",
+                Component: AnalyticsPage
+            },
+            // {
+            //     path: "settings",
+            // }
         ]
     }
 ])
