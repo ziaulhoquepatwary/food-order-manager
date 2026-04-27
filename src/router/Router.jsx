@@ -17,6 +17,7 @@ import MenuPage from "../pages/admin/menu/MenuPage";
 import CookersPage from "../pages/admin/cookers/CookersPage";
 import TablesPage from "../pages/admin/tables/TablesPage";
 import AnalyticsPage from "../pages/admin/analytics/AnalyticsPage";
+import SettingsPage from "../pages/admin/settings/SettingsPage";
 
 export const router = createBrowserRouter([
     {
@@ -97,9 +98,10 @@ export const router = createBrowserRouter([
                 path: "analytics",
                 Component: AnalyticsPage
             },
-            // {
-            //     path: "settings",
-            // }
+            {
+                path: "settings",
+                Component: SettingsPage
+            }
         ]
     }
 ])
